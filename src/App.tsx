@@ -1,10 +1,10 @@
 import './index.css'
-import TimerApp from './TimerApp.tsx'
+import DaySelector from './DaySelector.tsx'
 
 function App() {
   return (
     <div className="min-h-screen bg-white flex items-center justify-center">
-      <TimerApp />
+      <DaySelector />
     </div>
   )
 }

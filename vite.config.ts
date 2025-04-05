@@ -11,8 +11,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'icons/icon-192x192.png', 'icons/icon-512x512.png'],
       manifest: {
-        name: 'My PWA Timer',
-        short_name: 'PWA Timer',
+        name: 'Daily Focus & Workout App',
+        short_name: 'FocusApp',
+        description: 'Un timer personalizzato con workout per ogni tipo di giornata',
         start_url: '/',
         display: 'standalone',
         background_color: '#ffffff',
@@ -30,7 +31,31 @@ export default defineConfig({
             purpose: 'any maskable',
           },
         ],
-      },
+        shortcuts: [
+          {
+            name: 'Vai al Timer',
+            short_name: 'Timer',
+            description: 'Avvia il timer della giornata',
+            url: '/?autostart=true',
+            icons: [{ src: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' }],
+          },
+          {
+            name: 'Allenamento',
+            short_name: 'Workout',
+            description: 'Inizia la sessione di HIIT',
+            url: '/workout.html',
+            icons: [{ src: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' }],
+          },
+          {
+            name: 'Seleziona Giornata',
+            short_name: 'Giornata',
+            description: 'Scegli il tipo di giornata',
+            url: '/',
+            icons: [{ src: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' }],
+          },
+        ]
+      }
+
     }),
   ],
   build: {
