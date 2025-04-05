@@ -1,1 +1,43 @@
 @import "tailwindcss";
+
+@keyframes wave-flow {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .animate-wave {
+    animation: wave-flow 3s linear infinite;
+  }
+  
+  .animate-wave-slow {
+    animation: wave-flow 5s linear infinite reverse;
+  }
+  
+  @keyframes bubble-rise {
+    0% {
+      transform: translateY(0) scale(0.8);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100%) scale(1.2);
+      opacity: 0;
+    }
+  }
+  
+  .bubble {
+    animation: bubble-rise 4s ease-in forwards;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 9999px;
+    position: absolute;
+    bottom: 0;
+    width: 12px;
+    height: 12px;
+  }
+  
