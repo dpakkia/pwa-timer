@@ -12,6 +12,12 @@ type Bubble = {
   duration: number;
 };
 
+const vibrate = (pattern: number | number[]) => {
+  if (navigator.vibrate) {
+    navigator.vibrate(pattern);
+  }
+};
+
 export default function TimerApp() {
   const [phaseIndex, setPhaseIndex] = useState<number>(0);
   const [remaining, setRemaining] = useState<number>(PHASES[0].duration);
@@ -62,6 +68,7 @@ export default function TimerApp() {
   };
 
   const handleNextPhase = (): void => {
+    vibrate([100, 100, 100]);
     const nextIndex = (phaseIndex + 1) % PHASES.length;
     setPhaseIndex(nextIndex);
     setRemaining(PHASES[nextIndex].duration);
@@ -74,6 +81,7 @@ export default function TimerApp() {
   const handleLongPress = (): void => {
     wasLongPress.current = true;
     setMenuVisible(true);
+    vibrate(300);
   };
 
   const handleTouchStart = (): void => {
@@ -85,7 +93,10 @@ export default function TimerApp() {
 
   const handleTouchEnd = (): void => {
     if (longPressTimer.current) clearTimeout(longPressTimer.current);
-    if (!wasLongPress.current) setIsRunning((r) => !r);
+    if (!wasLongPress.current) {
+      setIsRunning((r) => !r);
+      vibrate(100);
+    }
   };
 
   return (
