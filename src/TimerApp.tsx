@@ -167,7 +167,10 @@ export default function TimerApp() {
 
       {menuVisible && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 transition-opacity duration-300">
-          <div className="bg-white rounded-xl shadow-lg p-6 space-y-4 w-[90%] max-w-xs text-center transform scale-100 transition duration-200 ease-out">
+          <div
+            className="bg-white rounded-xl shadow-lg p-6 space-y-4 w-[90%] max-w-xs text-center transform scale-100 transition duration-200 ease-out"
+            onTouchStart={(e) => e.stopPropagation()} onTouchEnd={(e) => e.stopPropagation()}
+          >
             <h2 className="text-lg font-bold text-gray-700">Timer Menu</h2>
             <button
               className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded"
