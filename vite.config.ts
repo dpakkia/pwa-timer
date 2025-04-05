@@ -36,7 +36,7 @@ export default defineConfig({
             name: 'Vai al Timer',
             short_name: 'Timer',
             description: 'Avvia il timer della giornata',
-            url: '/?autostart=true',
+            url: '/timer.html?autostart=true',
             icons: [{ src: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' }],
           },
           {
@@ -54,8 +54,7 @@ export default defineConfig({
             icons: [{ src: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' }],
           },
         ]
-      }
-
+      },
     }),
   ],
   build: {
@@ -63,6 +62,15 @@ export default defineConfig({
       input: {
         main: 'index.html',
         workout: 'workout.html',
+        'corpo-libero': 'corpo-libero.html',
+        preparazione: 'preparazione.html',
+        defaticamento: 'defaticamento.html',
+        riscaldamento: 'riscaldamento.html',
+        'fine-sport': 'fine-sport.html',
+        mattina: 'mattina.html',
+        sera: 'sera.html',
+        'stretching-finale': 'stretching-finale.html',
+        timer: 'timer.html',
       },
     },
   },
