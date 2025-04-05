@@ -153,9 +153,8 @@ export default function TimerApp() {
 
         {/* Timer Text */}
         <div
-          className={`absolute inset-0 flex items-center justify-center text-5xl font-mono transition-colors duration-300 ${
-            percentage > 50 ? 'text-black' : 'text-white'
-          }`}
+          className={`absolute inset-0 flex items-center justify-center text-5xl font-mono transition-colors duration-300 ${percentage > 50 ? 'text-black' : 'text-white'
+            }`}
         >
           {formatTime(remaining)}
         </div>
@@ -194,11 +193,12 @@ export default function TimerApp() {
               className="w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded"
               onClick={() => {
                 setMenuVisible(false);
-                alert('End of Day! 🎉');
+                window.location.href = '/workout.html';
               }}
             >
               ✅ End Day
             </button>
+
             <button
               className="text-gray-500 underline text-sm mt-2"
               onClick={() => setMenuVisible(false)}
