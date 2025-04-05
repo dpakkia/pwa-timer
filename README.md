@@ -1,54 +1,84 @@
-# React + TypeScript + Vite
+# ⏱️ PWA Work Phase Timer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A beautiful, minimalist **Progressive Web App** for managing work/editing sessions using custom Pomodoro-style phases.
 
-Currently, two official plugins are available:
+Built with **React**, **Tailwind CSS**, **Vite**, and installable as a PWA on both desktop and mobile.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🧠 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 🔵 Circular timer with animated bottom-up fill
+- 🎯 Phases: `Work (45 min)` → `Stand Up (10 min)` → `Break (5 min)`
+- ⏯️ Tap to pause/resume
+- ✋ Long-press opens a floating menu:
+  - 🔁 Reset current phase
+  - ⏭ Skip phase
+  - ✅ End day (coming soon: QR or summary view)
+- 💡 Works offline thanks to PWA support
+- 📱 Mobile-first UI, installable on any device
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+---
+
+## 🛠 Tech Stack
+
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS (via plugin)](https://tailwindcss.com/docs/installation/using-vite)
+- [vite-plugin-pwa](https://vite-pwa-org.netlify.app/)
+
+---
+
+## 🚀 Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Run the app locally
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📦 PWA Manifest
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+Includes:
+- Icons: `192x192`, `512x512`
+- Theme color
+- Install support for desktop and mobile
+
+---
+
+## 📁 Project Structure
+
 ```
+src/
+  ├── App.tsx          # Main layout wrapper
+  ├── TimerApp.tsx     # Timer logic & UI
+  ├── index.css        # Tailwind CSS imports
+  └── main.tsx         # Entry point
+vite.config.ts         # Vite config with Tailwind & PWA
+public/icons/          # App icons (for manifest)
+```
+
+---
+
+## 📄 License
+
+MIT — use, modify, share freely 🙌
+
+---
+
+## 🧪 Next Features (Coming Soon)
+
+- Show QR code on End Day
+- Add sound or vibration feedback
+- Visual statistics / phase history
+- Dark mode and animations

@@ -11,6 +11,8 @@ export default function TimerApp() {
   const [remaining, setRemaining] = useState<number>(PHASES[0].duration);
   const [isRunning, setIsRunning] = useState<boolean>(true);
   const longPressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const wasLongPress = useRef(false);
+  const [menuVisible, setMenuVisible] = useState(false);
 
   const total = PHASES[phaseIndex].duration;
   const percentage = ((total - remaining) / total) * 100;
@@ -48,19 +50,20 @@ export default function TimerApp() {
   };
 
   const handleLongPress = (): void => {
-    const reset = confirm('Reset current phase?');
-    if (reset) handleReset();
+    wasLongPress.current = true;
+    setMenuVisible(true);
   };
 
   const handleTouchStart = (): void => {
-    longPressTimer.current = setTimeout(handleLongPress, 1000);
+    wasLongPress.current = false;
+    longPressTimer.current = setTimeout(() => {
+      handleLongPress();
+    }, 800);
   };
 
   const handleTouchEnd = (): void => {
-    if (longPressTimer.current) {
-      clearTimeout(longPressTimer.current);
-      setIsRunning((r) => !r);
-    }
+    if (longPressTimer.current) clearTimeout(longPressTimer.current);
+    if (!wasLongPress.current) setIsRunning((r) => !r);
   };
 
   return (
@@ -88,8 +91,49 @@ export default function TimerApp() {
       </div>
 
       <p className="mt-4 text-gray-400 text-sm">
-        Tap to pause/resume · Long press to reset
+        Tap to pause/resume · Long press to open menu
       </p>
+
+      {menuVisible && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 transition-opacity duration-300">
+          <div className="bg-white rounded-xl shadow-lg p-6 space-y-4 w-[90%] max-w-xs text-center transform scale-100 transition duration-200 ease-out">
+            <h2 className="text-lg font-bold text-gray-700">Timer Menu</h2>
+            <button
+              className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded"
+              onClick={() => {
+                handleReset();
+                setMenuVisible(false);
+              }}
+            >
+              🔁 Reset Phase
+            </button>
+            <button
+              className="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-2 rounded"
+              onClick={() => {
+                handleNextPhase();
+                setMenuVisible(false);
+              }}
+            >
+              ⏭ Skip Phase
+            </button>
+            <button
+              className="w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded"
+              onClick={() => {
+                setMenuVisible(false);
+                alert('End of Day! 🎉');
+              }}
+            >
+              ✅ End Day
+            </button>
+            <button
+              className="text-gray-500 underline text-sm mt-2"
+              onClick={() => setMenuVisible(false)}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
