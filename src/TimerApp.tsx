@@ -8,6 +8,29 @@ const PHASES = [
   { label: 'Break', duration: 5 * 60 },
 ];
 
+const BREAK_WORKOUT = [
+  {
+    name: 'Jumping Jack',
+    videoUrl: 'https://www.youtube.com/embed/gG2Z1siSvkk',
+    duration: '30 sec'
+  },
+  {
+    name: 'Squats',
+    videoUrl: 'https://www.youtube.com/embed/Zqc_lc93hak',
+    duration: '20 ripetizioni'
+  },
+  {
+    name: 'Push-up',
+    videoUrl: 'https://www.youtube.com/embed/v9LABVJzv8A',
+    duration: '15 ripetizioni'
+  },
+  {
+    name: 'Plank',
+    videoUrl: 'https://www.youtube.com/embed/B296mZDhrP4',
+    duration: '30 sec'
+  },
+];
+
 const vibrate = (pattern: number | number[]) => {
   if (navigator.vibrate) {
     navigator.vibrate(pattern);
@@ -142,6 +165,30 @@ export default function TimerApp() {
       <p className="mt-4 text-gray-500 dark:text-gray-400 text-sm">
         Tap to pause/resume · Long press to open menu
       </p>
+
+      {PHASES[phaseIndex].label === 'Break' && (
+        <div className="mt-6 space-y-4 w-full max-w-md px-4">
+          <h2 className="text-lg font-bold text-center">Mini Workout</h2>
+          {BREAK_WORKOUT.map((exercise) => (
+            <div key={exercise.name} className="bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden">
+              <div className="p-4">
+                <h3 className="font-medium text-gray-800 dark:text-gray-100 mb-1">{exercise.name}</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">{exercise.duration}</p>
+                <div className="aspect-w-16 aspect-h-9">
+                  <iframe
+                    className="w-full h-48"
+                    src={exercise.videoUrl}
+                    title={exercise.name}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
 
       {menuVisible && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 transition-opacity duration-300">

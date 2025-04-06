@@ -28,29 +28,31 @@ export default function DaySelector() {
 
   const renderOptions = () => {
     switch (selectedDay) {
-      case 'sport':
+      case 'sport': {
+        const faded = subCategory !== null ? 'opacity-50' : '';
         return (
           <div className="space-y-2">
             <Option
               label="Allenamento a corpo libero"
               link="/corpo-libero.html"
-              className={subCategory ? 'opacity-50' : ''}
+              className={faded}
             />
             <button
               onClick={() => setSubCategory('trekking')}
-              className={`block w-full bg-gray-200 dark:bg-gray-700 text-center py-2 rounded-lg hover:bg-opacity-80 transition ${subCategory === 'trekking' ? 'opacity-50' : ''}`}
+              className={`block w-full bg-gray-200 dark:bg-gray-700 text-center py-2 rounded-lg hover:bg-opacity-80 transition ${faded}`}
             >
               Trekking
             </button>
             <button
               onClick={() => setSubCategory('sport')}
-              className={`block w-full bg-gray-200 dark:bg-gray-700 text-center py-2 rounded-lg hover:bg-opacity-80 transition ${subCategory === 'sport' ? 'opacity-50' : ''}`}
+              className={`block w-full bg-gray-200 dark:bg-gray-700 text-center py-2 rounded-lg hover:bg-opacity-80 transition ${faded}`}
             >
               Sport
             </button>
             {renderSubOptions()}
           </div>
         );
+      }
       case 'lavoro':
         return (
           <div className="space-y-2">

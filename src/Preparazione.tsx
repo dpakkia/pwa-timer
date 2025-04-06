@@ -4,14 +4,15 @@ import ThemeToggle from './ThemeToggle.tsx';
 const warmupRoutine = [
   {
     name: 'Riscaldamento Classico',
-    url: 'https://darebee.com/workouts/classic-warmup-workout.html',
+    image: 'https://darebee.com/images/workouts/classic-warmup-workout.jpg',
   },
 ];
 
-export default function Preparazione() {
+export default function WorkoutPage() {
   const [isActive, setIsActive] = useState(false);
   const [isResting, setIsResting] = useState(false);
   const [secondsLeft, setSecondsLeft] = useState(30);
+  const [modalImage, setModalImage] = useState<string | null>(null);
 
   useEffect(() => {
     if (!isActive) return;
@@ -39,17 +40,26 @@ export default function Preparazione() {
         {warmupRoutine.map((item) => (
           <div key={item.name} className="bg-white dark:bg-gray-800 shadow rounded-lg p-4">
             <h3 className="font-semibold text-lg mb-2">{item.name}</h3>
-            <a
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 dark:text-blue-400 underline text-sm"
-            >
-              Vedi esercizio
-            </a>
+            {item.image && (
+              <img
+                src={item.image}
+                alt={item.name}
+                className="mt-4 w-full rounded-lg cursor-pointer shadow"
+                onClick={() => setModalImage(item.image)}
+              />
+            )}
           </div>
         ))}
       </div>
+
+      {modalImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          onClick={() => setModalImage(null)}
+        >
+          <img src={modalImage} className="max-w-full max-h-full rounded-lg shadow-lg" alt="Modal" />
+        </div>
+      )}
 
       <div className="text-center mt-8">
         <button
