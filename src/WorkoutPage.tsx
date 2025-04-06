@@ -40,17 +40,17 @@ export default function WorkoutPage() {
   }, [isActive, isResting]);
 
   return (
-    <div className="p-4 max-w-md mx-auto space-y-6 pb-24 bg-white text-black dark:bg-gray-900 dark:text-white min-h-screen">
+    <div className="p-4 max-w-md mx-auto space-y-6 pb-24 bg-white text-black dark:bg-black dark:text-white min-h-screen">
 
       <h1 className="text-2xl font-bold text-center">End of Day HIIT</h1>
-      <p className="text-center text-gray-600 dark:text-gray-400">4–5 giri del seguente circuito:</p>
+      <p className="text-center text-gray-600 dark:text-[#aaa]">4–5 giri del seguente circuito:</p>
 
       <div className="space-y-6">
         {hiitRoutine.map((exercise) => (
-          <div key={exercise.name} className="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden">
+          <div key={exercise.name} className="bg-white dark:bg-neutral-900 shadow-md rounded-lg overflow-hidden">
             <div className="p-4">
-              <h3 className="font-medium text-gray-800 dark:text-gray-100 mb-1">{exercise.name}</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">30 sec attività · 15 sec riposo</p>
+              <h3 className="font-medium text-gray-800 dark:text-white mb-1">{exercise.name}</h3>
+              <p className="text-sm text-gray-500 dark:text-[#aaa] mb-2">30 sec attività · 15 sec riposo</p>
               <div className="aspect-w-16 aspect-h-9">
                 <iframe
                   className="w-full h-48"

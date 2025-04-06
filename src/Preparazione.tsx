@@ -29,14 +29,14 @@ export default function WorkoutPage() {
   }, [isActive, isResting]);
 
   return (
-    <div className="p-4 max-w-md mx-auto space-y-6 pb-24 bg-white text-black dark:bg-gray-900 dark:text-white min-h-screen">
+    <div className="p-4 max-w-md mx-auto space-y-6 pb-24 bg-white text-black dark:bg-black dark:text-white min-h-screen">
 
       <h1 className="text-2xl font-bold text-center">Preparazione</h1>
-      <p className="text-center text-gray-600 dark:text-gray-400">10 minuti per attivare corpo e mente</p>
+      <p className="text-center text-gray-600 dark:text-[#aaa]">10 minuti per attivare corpo e mente</p>
 
       <div className="space-y-4">
         {warmupRoutine.map((item) => (
-          <div key={item.name} className="bg-white dark:bg-gray-800 shadow rounded-lg p-4">
+          <div key={item.name} className="bg-white dark:bg-neutral-900 shadow rounded-lg p-4">
             <h3 className="font-semibold text-lg mb-2">{item.name}</h3>
             {item.image && (
               <img

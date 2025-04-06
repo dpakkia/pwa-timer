@@ -33,14 +33,14 @@ export default function WorkoutPage() {
   }, [isActive, isResting]);
 
   return (
-    <div className="p-4 max-w-md mx-auto space-y-6 pb-24 bg-white text-black dark:bg-gray-900 dark:text-white min-h-screen">
+    <div className="p-4 max-w-md mx-auto space-y-6 pb-24 bg-white text-black dark:bg-black dark:text-white min-h-screen">
 
       <h1 className="text-2xl font-bold text-center">Riscaldamento</h1>
-      <p className="text-center text-gray-600 dark:text-gray-400">10–15 minuti di preparazione prima dello sport</p>
+      <p className="text-center text-gray-600 dark:text-[#aaa]">10–15 minuti di preparazione prima dello sport</p>
 
       <ul className="space-y-4">
         {warmupNotes.map((note, index) => (
-          <li key={index} className="bg-white dark:bg-gray-800 shadow rounded-lg p-4 text-sm">
+          <li key={index} className="bg-white dark:bg-neutral-900 shadow rounded-lg p-4 text-sm">
             🟢 {note.label}
             {note.image && (
               <img

@@ -59,7 +59,7 @@ export default function WorkoutPage() {
   }, [modalImage]);
 
   return (
-    <div className="p-4 max-w-md mx-auto space-y-6 pb-24 bg-white text-black dark:bg-gray-900 dark:text-white min-h-screen relative">
+    <div className="p-4 max-w-md mx-auto space-y-6 pb-24 bg-white text-black dark:bg-black dark:text-white min-h-screen relative">
 
       <h1 className="text-2xl font-bold text-center">Allenamento Corpo Libero</h1>
 
@@ -88,7 +88,7 @@ export default function WorkoutPage() {
 
       <section>
         <h2 className="text-xl font-semibold mt-6 mb-2">Circuito Full Body (4 giri)</h2>
-        <p className="text-sm text-gray-500 dark:text-gray-400">30 sec esercizio · 1 min riposo tra i giri</p>
+        <p className="text-sm text-gray-500 dark:text-[#aaa]">30 sec esercizio · 1 min riposo tra i giri</p>
         <ul className="space-y-4 mt-2">
           {circuit.map((item) => (
             <li key={item.name} className="text-sm">

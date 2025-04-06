@@ -133,7 +133,7 @@ export default function TimerApp() {
 
   return (
     <div
-      className="w-full flex flex-col items-center text-center select-none bg-white text-black dark:bg-gray-900 dark:text-white min-h-screen"
+      className="w-full flex flex-col items-center text-center select-none bg-white text-black dark:bg-black dark:text-white min-h-screen"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
@@ -176,7 +176,7 @@ export default function TimerApp() {
         </div>
       </div>
 
-      <p className="mt-4 text-gray-500 dark:text-gray-400 text-sm">
+      <p className="mt-4 text-gray-500 dark:text-[#aaa] text-sm">
         Tap to pause/resume · Long press to open menu
       </p>
 
@@ -184,10 +184,10 @@ export default function TimerApp() {
         <div className="mt-6 space-y-4 w-full max-w-md px-4">
           <h2 className="text-lg font-bold text-center">Mini Workout</h2>
           {BREAK_WORKOUT.map((exercise) => (
-            <div key={exercise.name} className="bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden">
+            <div key={exercise.name} className="bg-white dark:bg-neutral-900 shadow rounded-lg overflow-hidden">
               <div className="p-4">
-                <h3 className="font-medium text-gray-800 dark:text-gray-100 mb-1">{exercise.name}</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">{exercise.duration}</p>
+                <h3 className="font-medium text-gray-800 dark:text-white mb-1">{exercise.name}</h3>
+                <p className="text-sm text-gray-500 dark:text-[#aaa] mb-2">{exercise.duration}</p>
                 <div className="aspect-w-16 aspect-h-9">
                   <iframe
                     className="w-full h-48"
@@ -214,7 +214,7 @@ export default function TimerApp() {
       {menuVisible && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 transition-opacity duration-300">
           <div
-            className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-xl shadow-lg p-6 space-y-4 w-[90%] max-w-xs text-center"
+            className="bg-white dark:bg-neutral-900 text-gray-900 dark:text-white rounded-xl shadow-lg p-6 space-y-4 w-[90%] max-w-xs text-center"
             onTouchStart={(e) => e.stopPropagation()}
             onTouchEnd={(e) => e.stopPropagation()}
           >
@@ -247,7 +247,7 @@ export default function TimerApp() {
               ✅ End Day
             </button>
             <button
-              className="text-gray-500 dark:text-gray-400 underline text-sm mt-2"
+              className="text-gray-500 dark:text-[#aaa] underline text-sm mt-2"
               onClick={() => setMenuVisible(false)}
             >
               Cancel

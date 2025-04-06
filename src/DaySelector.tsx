@@ -38,13 +38,13 @@ export default function DaySelector() {
             />
             <button
               onClick={() => setSubCategory('trekking')}
-              className={`block w-full bg-gray-200 dark:bg-gray-700 text-center py-2 rounded-lg hover:bg-opacity-80 transition ${faded}`}
+              className={`block w-full bg-gray-200 dark:bg-[#111] text-center py-2 rounded-lg hover:bg-opacity-80 transition ${faded}`}
             >
               Trekking
             </button>
             <button
               onClick={() => setSubCategory('sport')}
-              className={`block w-full bg-gray-200 dark:bg-gray-700 text-center py-2 rounded-lg hover:bg-opacity-80 transition ${faded}`}
+              className={`block w-full bg-gray-200 dark:bg-[#111] text-center py-2 rounded-lg hover:bg-opacity-80 transition ${faded}`}
             >
               Sport
             </button>
@@ -72,7 +72,7 @@ export default function DaySelector() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white flex flex-col items-center justify-center p-4 space-y-6">
+    <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white flex flex-col items-center justify-center p-4 space-y-6">
       <h1 className="text-2xl font-bold text-center">Scegli il tipo di giornata</h1>
 
       {!selectedDay ? (
@@ -83,7 +83,7 @@ export default function DaySelector() {
         </div>
       ) : (
         <div className="w-full max-w-xs space-y-4">
-          <button onClick={() => { setSelectedDay(null); setSubCategory(null); }} className="text-sm underline text-gray-500 dark:text-gray-400">← Torna indietro</button>
+          <button onClick={() => { setSelectedDay(null); setSubCategory(null); }} className="text-sm underline text-gray-500 dark:text-[#aaa]">← Torna indietro</button>
           {renderOptions()}
         </div>
       )}
@@ -95,7 +95,7 @@ function Option({ label, link, className = '' }: { label: string; link: string; 
   return (
     <a
       href={link}
-      className={`block w-full bg-gray-200 dark:bg-gray-700 text-center py-2 rounded-lg hover:bg-opacity-80 transition ${className}`}
+      className={`block w-full bg-gray-200 dark:bg-[#111] text-center py-2 rounded-lg hover:bg-opacity-80 transition ${className}`}
     >
       {label}
     </a>
