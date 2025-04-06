@@ -1,4 +1,4 @@
-// TimerApp con supporto dark mode completo
+// TimerApp con supporto dark mode completo + mini floating timer (attivo quando i numeri escono)
 import { useState, useEffect, useRef } from 'react';
 import ThemeToggle from './ThemeToggle.tsx';
 
@@ -49,6 +49,8 @@ export default function TimerApp() {
   const [isRunning, setIsRunning] = useState(true);
   const [menuVisible, setMenuVisible] = useState(false);
   const [bubbles, setBubbles] = useState<Bubble[]>([]);
+  const [showMiniTimer, setShowMiniTimer] = useState(false);
+  const numberRef = useRef<HTMLDivElement | null>(null);
   const longPressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const wasLongPress = useRef(false);
 
@@ -81,6 +83,17 @@ export default function TimerApp() {
       ]);
     }, 2000);
     return () => clearInterval(bubbleInterval);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setShowMiniTimer(!entry.isIntersecting),
+      { threshold: 1.0 }
+    );
+    if (numberRef.current) observer.observe(numberRef.current);
+    return () => {
+      if (numberRef.current) observer.unobserve(numberRef.current);
+    };
   }, []);
 
   const formatTime = (sec: number) => {
@@ -157,7 +170,10 @@ export default function TimerApp() {
           />
         ))}
 
-        <div className={`absolute inset-0 flex items-center justify-center text-5xl font-mono transition-colors duration-300 ${percentage > 50 ? 'text-black' : 'text-white'}`}>
+        <div
+          ref={numberRef}
+          className={`absolute inset-0 flex items-center justify-center text-5xl font-mono transition-colors duration-300 ${percentage > 50 ? 'text-black' : 'text-white'}`}
+        >
           {formatTime(remaining)}
         </div>
       </div>
@@ -187,6 +203,13 @@ export default function TimerApp() {
               </div>
             </div>
           ))}
+        </div>
+      )}
+
+      {showMiniTimer && (
+        <div className="fixed top-4 right-4 bg-blue-700 text-white px-3 py-1 rounded-full text-sm shadow z-50 flex items-center gap-2 animate-fade-in">
+          <span>⏱ {PHASES[phaseIndex].label}</span>
+          <strong>{formatTime(remaining)}</strong>
         </div>
       )}
 
