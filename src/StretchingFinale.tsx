@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import ThemeToggle from './ThemeToggle.tsx';
 
 export default function WorkoutPage() {
   const [isActive, setIsActive] = useState(false);
@@ -24,7 +23,6 @@ export default function WorkoutPage() {
 
   return (
     <div className="p-4 max-w-md mx-auto space-y-6 pb-24 bg-white text-black dark:bg-gray-900 dark:text-white min-h-screen">
-      <ThemeToggle />
 
       <h1 className="text-2xl font-bold text-center">Stretching Finale</h1>
       <p className="text-center text-gray-600 dark:text-gray-400">15 minuti di rilassamento post-attività</p>

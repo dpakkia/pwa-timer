@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import ThemeToggle from './ThemeToggle.tsx';
 
 const warmup = [
   { name: 'Jumping Jack', duration: '2 min', videoUrl: 'https://www.youtube.com/embed/gG2Z1siSvkk' },
@@ -61,7 +60,6 @@ export default function WorkoutPage() {
 
   return (
     <div className="p-4 max-w-md mx-auto space-y-6 pb-24 bg-white text-black dark:bg-gray-900 dark:text-white min-h-screen relative">
-      <ThemeToggle />
 
       <h1 className="text-2xl font-bold text-center">Allenamento Corpo Libero</h1>
 

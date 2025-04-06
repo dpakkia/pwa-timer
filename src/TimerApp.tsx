@@ -1,6 +1,5 @@
 // TimerApp con supporto dark mode completo + mini floating timer (attivo quando i numeri escono)
 import { useState, useEffect, useRef } from 'react';
-import ThemeToggle from './ThemeToggle.tsx';
 
 const PHASES = [
   { label: 'Work', duration: 45 * 60 },
@@ -138,7 +137,6 @@ export default function TimerApp() {
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      <ThemeToggle />
 
       <h1 className="text-2xl font-semibold mb-6">{PHASES[phaseIndex].label}</h1>
 

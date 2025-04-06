@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import ThemeToggle from './ThemeToggle';
 
 export default function DaySelector() {
   const [selectedDay, setSelectedDay] = useState<string | null>(null);
@@ -74,7 +73,6 @@ export default function DaySelector() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white flex flex-col items-center justify-center p-4 space-y-6">
-      <ThemeToggle />
       <h1 className="text-2xl font-bold text-center">Scegli il tipo di giornata</h1>
 
       {!selectedDay ? (
