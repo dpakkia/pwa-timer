@@ -33,14 +33,14 @@ export default function WorkoutPage() {
   }, [isActive, isResting]);
 
   return (
-    <div className="p-4 max-w-md mx-auto space-y-6 pb-24 bg-white text-black dark:bg-black dark:text-white min-h-screen">
+    <div className="p-4 max-w-md mx-auto space-y-6 pb-24 bg-black text-white min-h-screen">
 
       <h1 className="text-2xl font-bold text-center">Defaticamento</h1>
-      <p className="text-center text-gray-600 dark:text-[#aaa]">10–15 minuti per recuperare dopo l’attività</p>
+      <p className="text-center text-[#aaa]">10–15 minuti per recuperare dopo l’attività</p>
 
       <div className="space-y-4">
         {defaticamentoRoutine.map((item) => (
-          <div key={item.name} className="bg-white dark:bg-neutral-900 shadow rounded-lg p-4">
+          <div key={item.name} className="bg-neutral-900 shadow rounded-lg p-4">
             <h3 className="font-semibold text-lg mb-2">{item.name}</h3>
             {item.image && (
               <img

@@ -22,12 +22,12 @@ export default function WorkoutPage() {
   }, [isActive, isResting]);
 
   return (
-    <div className="p-4 max-w-md mx-auto space-y-6 pb-24 bg-white text-black dark:bg-black dark:text-white min-h-screen">
+    <div className="p-4 max-w-md mx-auto space-y-6 pb-24 bg-black text-white min-h-screen">
 
       <h1 className="text-2xl font-bold text-center">Stretching Finale</h1>
-      <p className="text-center text-gray-600 dark:text-[#aaa]">15 minuti di rilassamento post-attività</p>
+      <p className="text-center text-[#aaa]">15 minuti di rilassamento post-attività</p>
 
-      <div className="bg-white dark:bg-neutral-900 shadow rounded-lg p-4">
+      <div className="bg-neutral-900 shadow rounded-lg p-4">
         <h3 className="font-semibold text-lg mb-2">Routine consigliata</h3>
         <img
           src="https://darebee.com/images/workouts/stretched-workout.jpg"
